@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Piko Přepadení">
+    <meta name="theme-color" content="#0a192f">
+    <title>Piko Přepadení - PWA Hra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="manifest" id="manifest-placeholder">
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzeXJpbmdlR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwMGY2ZmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhODU1ZjciLz48L2xpbmVhckdyYWRpZW50PjxmaWx0ZXIgaWQ9Im5lb25HbG93Ij48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0IiByZXN1bHQ9ImNvbG9yZWRCbHVyIi8+PGZlTWVyZ2U+PGZlTWVyZ2VOb2RlIGluPSJjb2xvcmVkQmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT48L2ZpbHRlcj48L2RlZnM+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIGZpbGw9IiMwYTE5MmYiIHJ4PSIyNCIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4LCA0OCkiPjxwYXRoIGQ9Ik00OCA4TDggOEw4IDQ4TDEyIDQ4TDEyIDQ0TDQ0IDQ0TDQ0IDEyTDQ4IDEyTDQ4IDhaTTE2IDEyTDE2IDQwTDQwIDQwTDQwIDEyTDE2IDEyWiIgZmlsbD0idXJsKCNzeXJpbmdlR3JhZGllbnQpIiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+PHJlY3QgeD0iMjAiIHk9IjE2IiB3aWR0aD0iMTYiIGhlaWdodD0iNCIgZmlsbD0idXJsKCNzeXJpbmdlR3JhZGllbnQpIiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+PHJlY3QgeD0iMjIiIHk9IjI0IiB3aWR0aD0iMTIiIGhlaWdodD0iOCIgZmlsbD0idXJsKCNzeXJpbmdlR3JhZGllbnQpIiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSIyOCIgcj0iNCIgZmlsbD0idXJsKCNzeXJpbmdlR3JhZGllbnQpIiBmaWx0ZXI9InVybCgjbmVvbkdsb3cpIi8+PC9nPjwvc3ZnPg==">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="screen">
+        <div class="glass-panel loading-panel">
+            <div class="neon-icon">💉</div>
+            <h1 class="neon-text">Piko Přepadení</h1>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+            <p class="loading-text">Načítání hry...</p>
+        </div>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen hidden">
+        <div class="background-pattern"></div>
+        <div class="header">
+            <div class="neon-icon">💉</div>
+            <h1 class="title neon-text">Piko Přepadení</h1>
+            <p class="subtitle">Satirická hra o útěku před fízly</p>
+        </div>
+        
+        <div class="menu-container">
+            <button id="play-btn" class="btn btn-primary">
+                <span class="btn-icon">▶</span>
+                <span>Začít hru</span>
+            </button>
+            
+            <button id="settings-btn" class="btn btn-secondary">
+                <span class="btn-icon">⚙</span>
+                <span>Nastavení</span>
+            </button>
+            
+            <button id="achievements-btn" class="btn btn-secondary">
+                <span class="btn-icon">🏆</span>
+                <span>Úspěchy</span>
+            </button>
+            
+            <button id="leaderboard-btn" class="btn btn-secondary">
+                <span class="btn-icon">📊</span>
+                <span>Nejlepší skóre</span>
+            </button>
+        </div>
+
+        <div class="glass-panel info-panel">
+            <h3>Jak hrát:</h3>
+            <p>• Swipe doleva/doprava pro pohyb</p>
+            <p>• Swipe nahoru pro skok</p>
+            <p>• Sbírej "matroš" pro body</p>
+            <p>• Vyhýbej se fízlům a překážkám</p>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen hidden">
+        <div class="game-ui">
+            <div class="hud-top">
+                <div class="score-display">
+                    <span class="score-label">Skóre:</span>
+                    <span id="score" class="score-value">0</span>
+                </div>
+                <div class="health-display">
+                    <span class="health-label">Zdraví:</span>
+                    <div class="health-bar">
+                        <div id="health-fill" class="health-fill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="power-ups-display" id="power-ups-display"></div>
+            
+            <button id="pause-btn" class="pause-btn">⏸</button>
+        </div>
+        
+        <canvas id="game-canvas" width="390" height="844"></canvas>
+        
+        <div class="touch-controls">
+            <div class="swipe-indicator">Swipe pro ovládání</div>
+        </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="pause-screen" class="screen modal hidden">
+        <div class="glass-panel modal-panel">
+            <h2 class="neon-text">Pauza</h2>
+            <div class="button-group">
+                <button id="resume-btn" class="btn btn-primary">Pokračovat</button>
+                <button id="restart-btn" class="btn btn-secondary">Restart</button>
+                <button id="quit-btn" class="btn btn-outline">Ukončit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over-screen" class="screen modal hidden">
+        <div class="glass-panel modal-panel">
+            <h2 class="neon-text game-over-title">Game Over!</h2>
+            <div id="game-over-quote" class="quote-text"></div>
+            
+            <div class="stats-display">
+                <div class="stat-item">
+                    <span class="stat-label">Finální skóre:</span>
+                    <span id="final-score" class="stat-value neon-text">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Vzdálenost:</span>
+                    <span id="final-distance" class="stat-value">0m</span>
+                </div>
+                <div class="stat-item" id="new-record" style="display: none;">
+                    <span class="neon-text">🏆 NOVÝ REKORD! 🏆</span>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button id="play-again-btn" class="btn btn-primary">Hrát znovu</button>
+                <button id="menu-btn" class="btn btn-secondary">Hlavní menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Screen -->
+    <div id="settings-screen" class="screen modal hidden">
+        <div class="glass-panel modal-panel">
+            <h2 class="neon-text">Nastavení</h2>
+            
+            <div class="settings-group">
+                <div class="setting-item">
+                    <label>Zvuk:</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="slider"></span>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <label>Vibrace:</label>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="vibration-toggle" checked>
+                        <span class="slider"></span>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <label>Obtížnost:</label>
+                    <select id="difficulty-select" class="form-control">
+                        <option value="easy">Lehká</option>
+                        <option value="normal" selected>Normální</option>
+                        <option value="hard">Těžká</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button id="save-settings-btn" class="btn btn-primary">Uložit</button>
+                <button id="close-settings-btn" class="btn btn-secondary">Zavřít</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievements Screen -->
+    <div id="achievements-screen" class="screen modal hidden">
+        <div class="glass-panel modal-panel achievements-panel">
+            <h2 class="neon-text">Úspěchy</h2>
+            <div id="achievements-list" class="achievements-list"></div>
+            <button id="close-achievements-btn" class="btn btn-secondary">Zavřít</button>
+        </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboard-screen" class="screen modal hidden">
+        <div class="glass-panel modal-panel">
+            <h2 class="neon-text">Nejlepší skóre</h2>
+            <div id="leaderboard-list" class="leaderboard-list"></div>
+            <div class="button-group">
+                <button id="clear-scores-btn" class="btn btn-outline">Vymazat skóre</button>
+                <button id="close-leaderboard-btn" class="btn btn-secondary">Zavřít</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Notification -->
+    <div id="event-notification" class="event-notification hidden">
+        <div class="notification-content">
+            <span id="event-text"></span>
+        </div>
+    </div>
+
+    <!-- Install PWA Prompt -->
+    <div id="install-prompt" class="install-prompt hidden">
+        <div class="glass-panel install-panel">
+            <h3>Nainstalovat hru</h3>
+            <p>Přidej si Piko Přepadení na plochu pro rychlý přístup!</p>
+            <div class="button-group">
+                <button id="install-btn" class="btn btn-primary">Nainstalovat</button>
+                <button id="dismiss-install-btn" class="btn btn-outline">Možná později</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
